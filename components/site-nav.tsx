@@ -14,36 +14,42 @@ const icons: Record<string, LucideIcon> = {
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2)
-
 /**
- * Desplazamiento suave con aceleración y frenado. El `scroll-behavior: smooth` nativo es lineal
- * y su duración no se controla; aquí crece con la distancia (máx. 1.2 s) para que un salto largo se sienta
- * como bajar, no como un corte. Se cancela si la persona usa la rueda, el dedo o el teclado.
+ * Transición "ascensor" al usar la navegación: el contenido actual sale hacia arriba (si el destino está más abajo)
+ * o hacia abajo (si está más arriba), se salta al destino sin que se vea el recorrido y el nuevo contenido entra desde el
+ * lado contrario. Solo ocurre con la navegación; el scroll normal con la rueda o el dedo no cambia.
+ * Con "reducir movimiento" se hace solo un fundido, sin desplazamiento.
  */
-function smoothScrollTo(top: number, onDone: () => void) {
-  const start = window.scrollY
-  const distance = top - start
-  const duration = Math.min(1200, 450 + Math.abs(distance) * 0.2)
-  let startTime: number | null = null
-  let frame = 0
-
-  const finish = () => {
-    cancelAnimationFrame(frame)
-    interruptEvents.forEach((type) => window.removeEventListener(type, finish))
+function elevatorTo(top: number, goingDown: boolean, onDone: () => void) {
+  const main = document.querySelector<HTMLElement>('main')
+  if (!main) {
+    window.scrollTo({ top, behavior: 'instant' })
     onDone()
+    return
   }
-  const step = (now: number) => {
-    startTime ??= now
-    const progress = Math.min(1, (now - startTime) / duration)
-    window.scrollTo({ top: start + distance * easeInOutCubic(progress), behavior: 'instant' })
-    if (progress < 1) frame = requestAnimationFrame(step)
-    else finish()
-  }
+  const shift = prefersReducedMotion() ? 0 : 72 // px que recorre el contenido
+  const dir = goingDown ? -1 : 1
 
-  const interruptEvents = ['wheel', 'touchstart', 'keydown'] as const
-  interruptEvents.forEach((type) => window.addEventListener(type, finish, { passive: true, once: true }))
-  frame = requestAnimationFrame(step)
+  // 1) Sale: acelera hacia fuera (ease-in) mientras se desvanece
+  main.style.transition = 'transform 220ms cubic-bezier(0.4, 0, 1, 1), opacity 200ms linear'
+  main.style.transform = `translateY(${dir * shift}px)`
+  main.style.opacity = '0'
+
+  window.setTimeout(() => {
+    // 2) Salto invisible al destino y colocación en el lado contrario
+    main.style.transition = 'none'
+    window.scrollTo({ top, behavior: 'instant' })
+    main.style.transform = `translateY(${-dir * shift}px)`
+    void main.offsetHeight
+    // 3) Entra: frena suave (ease-out)
+    main.style.transition = 'transform 520ms cubic-bezier(0.25, 1, 0.5, 1), opacity 360ms ease-out'
+    main.style.transform = 'translateY(0)'
+    main.style.opacity = '1'
+    window.setTimeout(() => {
+      main.style.transition = main.style.transform = main.style.opacity = ''
+      onDone()
+    }, 540)
+  }, 220)
 }
 
 /**
@@ -57,6 +63,7 @@ export function SiteNav({ links }: { links: NavLink[] }) {
   const [active, setActive] = useState(links[0]?.href ?? '')
   const listRef = useRef<HTMLUListElement>(null)
   const lockUntil = useRef(0)
+  const busy = useRef(false)
 
   useEffect(() => {
     const sections = links
@@ -115,6 +122,7 @@ export function SiteNav({ links }: { links: NavLink[] }) {
     if (!target) return
     event.preventDefault()
 
+    if (busy.current) return
     history.replaceState(null, '', href)
     // El indicador gris viaja de inmediato hasta el destino; mientras dura el desplazamiento el observador no lo mueve.
     setActive(href)
@@ -124,27 +132,14 @@ export function SiteNav({ links }: { links: NavLink[] }) {
     const offset = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0
     const maxScroll = root.scrollHeight - window.innerHeight
     const top = Math.min(maxScroll, Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset))
+    busy.current = true
 
-    if (prefersReducedMotion()) {
-      window.scrollTo({ top, behavior: 'instant' })
-      lockUntil.current = performance.now() + 120
-      return
-    }
-
-    // Durante el recorrido las secciones de paso se ven completas (sin huecos a medio aparecer)
-    // y solo el destino espera fuera de vista para entrar en cascada al llegar.
-    const targetReveal = target.closest<HTMLElement>('[data-reveal]') ?? target.querySelector<HTMLElement>('[data-reveal]')
-    const targetRect = targetReveal?.getBoundingClientRect()
-    const targetOnScreen = targetRect && targetRect.bottom > 0 && targetRect.top < window.innerHeight
-    if (targetReveal && !targetOnScreen) targetReveal.dataset.target = ''
+    // Mientras dura la transición todo lo que aparece se muestra completo (sin cascadas a medias)
     root.dataset.navScrolling = ''
-
-    // El indicador viaja con el scroll: pasa por las secciones intermedias y termina en el destino.
-    smoothScrollTo(top, () => {
-      setActive(href)
+    elevatorTo(top, top > window.scrollY, () => {
       lockUntil.current = performance.now() + 120
       delete root.dataset.navScrolling
-      requestAnimationFrame(() => targetReveal && delete targetReveal.dataset.target)
+      busy.current = false
     })
   }
 

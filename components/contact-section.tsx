@@ -38,14 +38,10 @@ export function ContactSection() {
             <MessageCircle aria-hidden="true" size={18} />
             Escribir por WhatsApp
           </a>
-          {githubUrl ? (
+          {githubUrl && (
             <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
               GitHub
             </a>
-          ) : (
-            <span className="inline-flex items-center gap-2 text-slate">
-              GitHub <Pending label="URL" />
-            </span>
           )}
         </div>
       </div>

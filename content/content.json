@@ -2,8 +2,8 @@
   "site": {
     "name": "Emerson Sontay",
     "fullName": "Emerson Gerardo Sontay Rodríguez",
-    "role": "Programador Entry Level",
-    "headline": "Programador Entry Level | Backend (Node.js, Express, SQL) y Frontend, asistido con IA",
+    "role": "Programador Backend",
+    "headline": "Programador Backend Junior | Node.js, Express, SQL · Frontend asistido con IA",
     "location": "Chimaltenango, Guatemala",
     "email": "emersonrodriguez1455@gmail.com",
     "whatsappUrl": "https://wa.me/50254394463",
@@ -22,11 +22,11 @@
   ],
   "hero": {
     "greeting": "Hola, soy Emerson Sontay",
-    "title": "Programador Entry Level",
-    "focus": ["Backend", "Frontend", "Asistido con IA"],
-    "summary": "Mi base es el backend: Node.js, Express y SQL, donde tengo conocimientos propios. Uso la inteligencia artificial en los dos lados: en el frontend para construir interfaces más rápido y en el backend para revisar, depurar y aprender, entendiendo y validando cada línea que entrego."
+    "title": "Programador Backend",
+    "focus": ["Junior", "Frontend", "Asistido con IA"],
+    "summary": "Mi base es el backend: Node.js, Express y SQL, donde tengo conocimientos propios. Uso la inteligencia artificial en los dos lados: en el frontend para construir interfaces más rápido y en el backend para revisar, depurar y aprender. Así puedo entregar proyectos más grandes y robustos, aprendiendo con la IA en cada paso."
   },
-  "projectsIntro": "Programador Entry Level: backend con base propia y frontend, asistido con inteligencia artificial.",
+  "projectsIntro": "Programador Backend Junior: backend con base propia y frontend, asistido con inteligencia artificial.",
   "projects": [
     {
       "id": "tickets-tic",
@@ -162,34 +162,88 @@
       "Ahora enfoco mi energía en el backend para poder diseñar y construir sistemas completos por mi cuenta."
     ],
     "photo": null,
-    "education": "Bachillerato Industrial y Perito en Computación, Liceo Cristiano Hispanoamericano, Chimaltenango, 2026."
+    "education": "Bachillerato Industrial y Perito en Computación, Liceo Cristiano Hispanoamericano, Chimaltenango, 2026. Ingeniería en Sistemas, Universidad Mariano Gálvez (inicio previsto 2027)."
   },
   "ai": {
     "title": "Cómo trabajo con IA",
-    "text": "Uso la IA como herramienta y yo dirijo las decisiones. Mi forma de trabajar incluye orquestar agentes y subagentes, ciclos de iteración y pulido, skills reutilizables, y reglas y convenciones para mantener un stack y un diseño consistentes y cuidar la seguridad. Reviso y pruebo cada cambio antes de aceptarlo. También aprendo con ella: es como tener a mi lado a un programador con mucha experiencia que me explica, me corrige y me enseña buenas prácticas, y así mejoro mi forma de programar cada día."
+    "text": "Uso la IA como herramienta de apoyo y yo dirijo las decisiones: me ayuda a avanzar más rápido en las interfaces y a revisar, depurar y aprender en el backend. Trabajo en ciclos: pruebo, ajusto y vuelvo a probar, y reviso cada cambio antes de aceptarlo. También aprendo con ella: es como tener a mi lado a un programador con mucha experiencia que me explica, me corrige y me enseña buenas prácticas, y así mejoro mi forma de programar cada día."
   },
   "skills": {
     "title": "Habilidades",
     "groups": [
-      { "title": "Interfaces", "items": ["React", "Vite", "Tailwind CSS", "JavaScript", "HTML5", "CSS3"] },
-      { "title": "Backend (nivel inicial, potenciado con IA)", "items": ["Node.js", "Express", "Postman", "API REST y JSON"] },
-      { "title": "Datos (ampliando conocimientos)", "items": ["PostgreSQL", "SQL"] },
-      { "title": "Herramientas", "items": ["Git", "GitHub", "PowerShell", "Playwright"] },
-      { "title": "Despliegue (con apoyo del equipo)", "items": ["Docker", "GitHub Actions", "Ubuntu Server"] },
+      {
+        "title": "Interfaces",
+        "items": [
+          "React",
+          "Vite",
+          "Tailwind CSS",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "Diseño responsive"
+        ]
+      },
+      {
+        "title": "Backend (nivel inicial, potenciado con IA)",
+        "items": [
+          "Node.js",
+          "Express",
+          "Postman",
+          "API REST y JSON"
+        ]
+      },
+      {
+        "title": "Datos (ampliando conocimientos)",
+        "items": [
+          "PostgreSQL",
+          "SQL"
+        ]
+      },
+      {
+        "title": "Herramientas",
+        "items": [
+          "Git",
+          "GitHub",
+          "PowerShell",
+          "Playwright"
+        ]
+      },
+      {
+        "title": "Despliegue (con apoyo del equipo)",
+        "items": [
+          "Docker",
+          "GitHub Actions",
+          "Ubuntu Server"
+        ]
+      },
       {
         "title": "Trabajo con IA",
         "items": [
-          "Orquestación de agentes y subagentes",
-          "Iteración y pulido",
-          "Skills reutilizables",
-          "Reglas y convenciones",
-          "Revisión y pruebas de cada cambio",
-          "Aprendizaje continuo y buenas prácticas"
+          "Desarrollo asistido con IA",
+          "Revisión y depuración del código",
+          "Pruebas de cada cambio",
+          "Aprendizaje con IA y buenas prácticas"
+        ]
+      },
+      {
+        "title": "Soporte TI",
+        "items": [
+          "Atención a usuarios",
+          "Tickets e incidencias",
+          "Priorización y escalamiento",
+          "Inventario de equipos",
+          "Actas de entrega",
+          "Documentación de procesos"
         ]
       },
       {
         "title": "Cómo trabajo",
-        "items": ["Resolución de problemas", "Pensamiento crítico", "Trabajo en equipo", "Atención al detalle"]
+        "items": [
+          "Resolución de problemas",
+          "Pensamiento crítico",
+          "Trabajo en equipo",
+          "Atención al detalle"
+        ]
       }
     ]
   },
@@ -215,16 +269,21 @@
     "GitHub Actions": "devicon:githubactions/githubactions-original",
     "Ubuntu Server": "devicon:ubuntu/ubuntu-original",
     "API Laravel": "devicon:laravel/laravel-original",
-    "Orquestación de agentes y subagentes": "lucide:workflow",
-    "Iteración y pulido": "lucide:refresh",
-    "Skills reutilizables": "lucide:blocks",
-    "Reglas y convenciones": "lucide:list",
-    "Revisión y pruebas de cada cambio": "lucide:check",
-    "Aprendizaje continuo y buenas prácticas": "lucide:book",
     "Resolución de problemas": "lucide:puzzle",
     "Pensamiento crítico": "lucide:brain",
     "Trabajo en equipo": "lucide:users",
-    "Atención al detalle": "lucide:search"
+    "Atención al detalle": "lucide:search",
+    "Diseño responsive": "lucide:blocks",
+    "Desarrollo asistido con IA": "lucide:workflow",
+    "Revisión y depuración del código": "lucide:search",
+    "Pruebas de cada cambio": "lucide:check",
+    "Aprendizaje con IA y buenas prácticas": "lucide:book",
+    "Atención a usuarios": "lucide:users",
+    "Tickets e incidencias": "lucide:list",
+    "Priorización y escalamiento": "lucide:workflow",
+    "Inventario de equipos": "lucide:database",
+    "Actas de entrega": "lucide:check",
+    "Documentación de procesos": "lucide:book"
   },
   "contact": {
     "title": "Contacto",

@@ -4,7 +4,7 @@ import { SectionHeading } from '@/components/section-heading'
 /**
  * Sobre mí: columna izquierda fija con el titular y una imagen; columna derecha con el primer párrafo
  * como "lead", el resto en lectura normal y la formación como pie.
- * La imagen solo aparece desde tablet: el celular se mantiene como estaba.
+ * La imagen se ve en todos los tamaños (en celular queda entre el titular y el texto).
  * Para poner una foto: en content.json, `about.photo` = { "src": "/ruta.jpg", "alt": "…" }.
  */
 export function AboutSection() {
@@ -17,7 +17,7 @@ export function AboutSection() {
       <div className="flex flex-col gap-8 md:sticky md:top-28 md:self-start">
         <SectionHeading id="sobre-mi-titulo" text={about.title} />
 
-        <figure className="hidden aspect-[4/3] overflow-hidden rounded-card bg-mint shadow-[0_1px_2px_rgb(0_0_0/0.04),0_8px_24px_-14px_rgb(0_0_0/0.14)] md:block">
+        <figure className="aspect-[4/3] overflow-hidden rounded-card bg-mint shadow-[0_1px_2px_rgb(0_0_0/0.04),0_8px_24px_-14px_rgb(0_0_0/0.14)]">
           {photo ? (
             <img src={photo.src} alt={photo.alt} width={960} height={720} loading="lazy" decoding="async" className="size-full object-cover" />
           ) : (

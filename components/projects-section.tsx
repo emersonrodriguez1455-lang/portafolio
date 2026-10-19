@@ -6,6 +6,11 @@ import { ProjectCard, type Project } from '@/components/project-card'
 import { ProjectDialog } from '@/components/project-dialog'
 import { Typewriter } from '@/components/typewriter'
 import { Reveal } from '@/components/reveal'
+import { HeroCodeCard } from '@/components/hero-code-card'
+import { LayoutTemplate, Sparkles, Sprout } from 'lucide-react'
+
+// Un ícono por chip: Junior · Frontend · Asistido con IA (Backend ya va en el titular)
+const focusIcons = [Sprout, LayoutTemplate, Sparkles]
 
 /**
  * Titular + tres tarjetas en la primera pantalla. Al abrir una, se muestra el caso completo.
@@ -31,33 +36,41 @@ export function ProjectsSection() {
           <Typewriter text={hero.greeting} start={100} speed={28} />
         </p>
 
-        <h1 className="font-display text-5xl leading-[0.9] tracking-[-0.03em] uppercase md:text-7xl lg:text-[5.5rem]">
+        <h1
+          data-text={hero.title}
+          className="shine-title font-display text-5xl leading-[0.9] tracking-[-0.03em] uppercase md:text-7xl lg:text-[5.5rem]"
+        >
           <Typewriter text={hero.title} start={300} speed={38} caret />
         </h1>
 
-        {/* Chips y párrafo arrancan sin esperar a que termine el titular */}
-        <div className="flex flex-col gap-4 md:mt-4">
-          <ul aria-label="Enfoque" className="flex shrink-0 flex-wrap gap-2">
-            {hero.focus.map((item, i) => (
-              <li
-                key={item}
-                className={`rise ${
-                  i === hero.focus.length - 1
-                    ? 'rounded-pill bg-ink px-3 py-1 font-mono text-xs tracking-[-0.03em] text-paper md:px-4 md:py-1.5 md:text-sm'
-                    : 'rounded-pill bg-mint px-3 py-1 font-mono text-xs tracking-[-0.03em] md:px-4 md:py-1.5 md:text-sm'
-                }`}
-                style={{ '--d': `${350 + i * 70}ms` } as CSSProperties}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p
-            className="rise max-w-2xl text-sm leading-relaxed text-pretty text-slate md:max-w-[65ch] md:text-base"
-            style={{ '--d': '560ms' } as CSSProperties}
-          >
-            {hero.summary}
-          </p>
+        {/* Texto a la izquierda; desde escritorio, la tarjeta de código a la derecha. Chips y párrafo no esperan al titular */}
+        <div className="flex flex-col gap-4 md:mt-4 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-center lg:gap-x-16">
+          <div className="flex flex-col gap-4">
+            <ul aria-label="Enfoque" className="flex shrink-0 flex-wrap gap-2">
+              {hero.focus.map((item, i) => {
+                const Icon = focusIcons[i]
+                return (
+                  <li
+                    key={item}
+                    className={`rise inline-flex items-center gap-2 rounded-pill px-3 py-1 font-mono text-xs tracking-[-0.03em] md:px-4 md:py-1.5 md:text-sm ${
+                      i === hero.focus.length - 1 ? 'bg-ink text-paper' : 'bg-mint'
+                    }`}
+                    style={{ '--d': `${350 + i * 70}ms` } as CSSProperties}
+                  >
+                    {Icon && <Icon aria-hidden="true" className="size-[1.1em] shrink-0" />}
+                    {item}
+                  </li>
+                )
+              })}
+            </ul>
+            <p
+              className="rise max-w-2xl text-sm leading-relaxed text-pretty text-slate md:max-w-[65ch] md:text-base"
+              style={{ '--d': '560ms' } as CSSProperties}
+            >
+              {hero.summary}
+            </p>
+          </div>
+          <HeroCodeCard className="hidden lg:block" />
         </div>
       </div>
 

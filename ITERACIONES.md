@@ -170,3 +170,32 @@ Siguiente ronda: medir en el sitio publicado; si el indicador se siente pesado, 
 Comprobado: sin scroll horizontal a 360, 390, 768, 1024, 1280, 1536, 1920, 2560 y 3840 px; todos los bloques terminan visibles tras recorrer la página; `pnpm build` sin errores; consola sin errores.
 
 Pendiente para la siguiente ronda: puntaje formal 0–10 por criterio, medición de fluidez (p95 de cuadro) sobre la versión publicada, revisar capturas de Sobre mí a 768 y de la expansión en tablet.
+
+## Ronda 6: inicio, navegación y aparición
+
+- Inicio: brillo metálico en el titular (copia del texto con `background-clip: text`, franja de izquierda a derecha cada 7 s); tarjeta de código (Express) a la derecha en escritorio; chips con íconos; monograma "ES" en la barra para no repetir nombre ni rol; párrafo sin "entendiendo y validando".
+- Navegación: transición "ascensor" solo al usar la barra (sale hacia arriba/abajo según el destino, salto invisible, entra por el lado contrario). Medido: salida 0→-72 px, entrada +72→0, opacidad 0→1. El scroll normal no cambia.
+- Aparición ligada al scroll (`animation-timeline: view()`) en las secciones; en navegadores sin soporte queda la entrada por IntersectionObserver.
+- "Reducir movimiento" (activo en el Chrome de Emerson): se conserva la cascada pero solo con fundido; la ilustración de Sobre mí ahora se ve también en celular.
+- Pendiente: puntaje formal 0–10, p95 de cuadro en la versión publicada.
+
+## Ronda 7: titular "Programador Backend" + chip "Junior"
+
+- Decisión basada en la investigación (reclutadores buscan por términos de rol estándar; el nivel no necesita ir en grande): titular "Programador Backend", chip "Junior" (con ícono) junto a "Frontend" y "Asistido con IA". Actualizados `site.role`, `site.headline` (SEO) y `projectsIntro`.
+- Revisado en 390, 768, 1280 y 1920 px: sin scroll horizontal ni errores de consola; hover del botón = escala 1.1.
+- Aviso: el CV en PDF aún trae los marcadores `[URL GITHUB]` y `[URL PORTAFOLIO]`, y el sitio muestra `[PENDIENTE: URL]` en GitHub. Hay que llenarlos antes de aplicar a puestos.
+
+## Ronda 8: CV en una hoja
+
+- CV rehecho en 1 página (Carta), texto seleccionable, una columna, fuente estándar (Liberation Sans/Arial). Reemplaza `public/cv/emerson-sontay-cv.pdf`.
+- Cambios: línea de resumen "Desarrollador (Programador) Junior"; IA como herramienta (sin "orquestación de agentes"); sin `library-api` hasta terminarla; sin primaria; Ingeniería en Sistemas, UMG (inicio previsto 2027); soporte TI integrado en un solo CV; sin inglés (se responde "básico" en preguntas de portales).
+- Pendiente: URL de GitHub y del portafolio publicado (se agregan al regenerar el PDF).
+
+## Ronda 9: coherencia portafolio ↔ CV
+
+- Sección "Cómo trabajo con IA" y grupo de habilidades de IA reescritos sin "orquestación de agentes/subagentes/skills": IA como herramienta que se dirige, se revisa y se prueba (igual que el CV).
+- Nuevo grupo "Soporte TI" (como en el CV) y "Diseño responsive" en Interfaces.
+- Sobre mí: la formación incluye Ingeniería en Sistemas, UMG (inicio previsto 2027).
+- Contacto: ya no se muestra "GitHub [PENDIENTE]" mientras no haya URL; el caso ya no muestra el botón deshabilitado "Demo próximamente".
+- CV descargable actualizado (1 hoja). Revisado a 1280 y 390 px: sin scroll horizontal, sin marcadores [PENDIENTE] visibles. Nota: los logos de tecnologías cargan desde la CDN de devicon (no se ven en mi entorno de pruebas, sí en un navegador normal).
+- Pendiente: URL de GitHub y del sitio publicado; terminar library-api antes de citarla.

@@ -161,11 +161,7 @@ export function ProjectDialog({ project, openId, origin }: { project: Project | 
                 Ver demo
                 <ExternalLink aria-hidden="true" size={16} />
               </a>
-            ) : (
-              <button type="button" disabled className="btn-dark btn-disabled">
-                Demo próximamente
-              </button>
-            )}
+            ) : null}
             <button type="button" onClick={close} className="btn-ghost">
               Cerrar
             </button>

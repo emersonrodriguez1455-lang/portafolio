@@ -309,18 +309,52 @@
     animation: none;
   }
 
-  /* Respaldo accesible: con "reducir movimiento" solo se funde, sin desplazar nada */
+  /* Respaldo accesible: con "reducir movimiento" se conserva la cascada (retrasos) pero solo se funde,
+     sin desplazar ni hacer zoom */
   @media (prefers-reduced-motion: reduce) {
     [data-reveal='section'][data-in] > section > *,
-    [data-reveal='list'] > [data-in] {
-      animation: fade-in 300ms linear backwards;
-      animation-delay: 0ms;
-    }
+    [data-reveal='list'] > [data-in],
     [data-reveal='list'] > [data-in] [data-media],
-    [data-reveal='list'] > [data-in] [data-media] img,
     [data-reveal='list'] > [data-in] article > :not([data-media]) {
+      animation-name: fade-in;
+      animation-duration: 450ms;
+      animation-timing-function: ease-out;
+    }
+    [data-reveal='list'] > [data-in] [data-media] img {
       animation: none;
     }
+  }
+
+  /* Degradado de aparición ligado al scroll: al bajar, cada bloque se va revelando conforme entra en pantalla
+     (opacidad y 32 px de subida durante los primeros 280 px de recorrido), no de golpe. Solo donde el navegador
+     soporta `animation-timeline: view()`; en los demás queda la entrada de arriba. */
+  @supports (animation-timeline: view()) {
+    [data-reveal='section'] > section > *,
+    [data-reveal='section'][data-in] > section > *,
+    [data-reveal='section']:not([data-in]) > section > * {
+      animation: scroll-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 280px;
+      animation-delay: 0ms;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal='section'] > section > *,
+      [data-reveal='section'][data-in] > section > *,
+      [data-reveal='section']:not([data-in]) > section > * {
+        animation-name: scroll-in-soft;
+      }
+    }
+  }
+}
+@keyframes scroll-in {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}
+@keyframes scroll-in-soft {
+  from {
+    opacity: 0;
   }
 }
 @keyframes sec-in {
@@ -566,4 +600,61 @@
   to {
     transform: translateY(-0.375rem);
   }
+}
+
+/* Brillo metálico del titular: una franja de luz cruza las letras de izquierda a derecha, cada 7 s.
+   Va en una copia del texto (::after) para no tocar las letras que escribe la máquina de escribir.
+   Con "reducir movimiento" ocurre una sola vez. */
+.shine-title {
+  position: relative;
+}
+.shine-title::after {
+  content: attr(data-text);
+  content: attr(data-text) / '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: transparent;
+  background: linear-gradient(
+      105deg,
+      transparent 38%,
+      rgb(209 255 202 / 0.55) 46%,
+      rgb(255 255 255 / 0.98) 50%,
+      rgb(255 241 0 / 0.35) 54%,
+      transparent 62%
+    )
+    100% 0 / 300% 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 7s ease-in-out 1.9s 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .shine-title::after {
+    animation-iteration-count: infinite;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 100% 0;
+  }
+  28%,
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Tarjeta de código del inicio: las líneas aparecen una a una y el cursor parpadea al final */
+.code-line {
+  animation: part-in 500ms var(--ease-out) backwards;
+  animation-delay: calc(700ms + var(--k, 0) * 110ms);
+}
+.code-caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.05em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+  background: var(--color-mint);
+  opacity: 0;
+  animation: tw-blink 1s steps(1) 1.6s infinite;
 }

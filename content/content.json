@@ -1,0 +1,235 @@
+{
+  "site": {
+    "name": "Emerson Sontay",
+    "fullName": "Emerson Gerardo Sontay Rodríguez",
+    "role": "Programador Entry Level",
+    "headline": "Programador Entry Level | Backend (Node.js, Express, SQL) y Frontend, asistido con IA",
+    "location": "Chimaltenango, Guatemala",
+    "email": "emersonrodriguez1455@gmail.com",
+    "whatsappUrl": "https://wa.me/50254394463",
+    "githubUrl": null,
+    "cvUrl": "/cv/emerson-sontay-cv.pdf"
+  },
+  "nav": [
+    { "label": "Proyectos", "href": "#proyectos" },
+    { "label": "Sobre mí",       "href": "#sobre-mi"
+    },
+    {
+      "label": "Habilidades",
+      "href": "#habilidades"
+    },
+    { "label": "Contacto", "href": "#contacto" }
+  ],
+  "hero": {
+    "greeting": "Hola, soy Emerson Sontay",
+    "title": "Programador Entry Level",
+    "focus": ["Backend", "Frontend", "Asistido con IA"],
+    "summary": "Mi base es el backend: Node.js, Express y SQL, donde tengo conocimientos propios. Uso la inteligencia artificial en los dos lados: en el frontend para construir interfaces más rápido y en el backend para revisar, depurar y aprender, entendiendo y validando cada línea que entrego."
+  },
+  "projectsIntro": "Programador Entry Level: backend con base propia y frontend, asistido con inteligencia artificial.",
+  "projects": [
+    {
+      "id": "tickets-tic",
+      "image": { "src": "/projects/tickets-tic.webp", "alt": "Bandeja de tickets del sistema: tarjetas por prioridad y estado" },
+      "title": "Sistema de Tickets TIC",
+      "summary": "Canal para que los colaboradores reporten fallas técnicas y el área de TIC les dé seguimiento.",
+      "tags": ["React", "Tailwind CSS", "API REST"],
+      "status": "Presentado, previsto para toda la empresa",
+      "video": {
+        "show": true,
+        "src": "/videos/tickets-tic.mp4",
+        "poster": "/videos/tickets-tic-poster.jpg",
+        "description": "Recorrido por las funciones principales del sistema, con datos ficticios."
+      },
+      "sections": [
+        {
+          "title": "Problema",
+          "text": "Áreas como finanzas, exportaciones y contabilidad necesitaban un canal claro con informática: errores del sistema Microsoft AX que solo un administrador puede corregir, ayuda con funcionalidades, fallas de equipos y dispositivos corporativos, y un registro del seguimiento de cada caso. Es una alternativa interna a un sistema de tickets de pago."
+        },
+        {
+          "title": "Solución",
+          "text": "Tickets con prioridad, chat con envío de imágenes, métricas, categorías y usuarios, roles Usuario y Administrador, validación de correos institucionales, adjuntos, respuestas guardadas, recorrido guiado \"¿Cómo funciona?\" y opción de llamada por Microsoft Teams."
+        },
+        {
+          "title": "Resolución de problemas",
+          "text": "En las pruebas descubrí que la actualización automática borraba lo que el usuario estaba escribiendo, y lo corregí. Diseñé un recorrido guiado para que cualquier persona entienda el sistema sin capacitación."
+        },
+        {
+          "title": "Mi rol",
+          "text": "Diseñé y construí la interfaz, con creatividad y con la identidad visual de la empresa, usando los endpoints del backend. El backend lo creó el ingeniero del área de programación; trabajamos juntos. Usé IA como herramienta y yo dirigí el diseño, revisé el código y probé los comportamientos."
+        },
+        {
+          "title": "Calidad",
+          "list": [
+            "Funciona bien en celular, tablet, laptop y escritorio.",
+            "Cada usuario ve solo sus propios tickets.",
+            "QA hecho con inteligencia artificial en conjunto con pruebas de campo en dispositivos reales, para dar el mejor resultado posible."
+          ]
+        },
+        {
+          "title": "Estado",
+          "text": "Presentado al jefe de TIC el 25 de septiembre de 2026 y previsto para uso de toda la empresa."
+        }
+      ],
+      "technologies": ["React", "Vite", "Tailwind CSS", "Consumo de API REST", "Playwright"],
+      "demoUrl": null,
+      "siteUrl": null
+    },
+    {
+      "id": "formatos-tic",
+      "image": { "src": "/projects/formatos-tic.webp", "alt": "Pantalla Nueva Acta del sistema de formatos, con entrega y devolución de equipo" },
+      "title": "Sistema de Formatos TIC",
+      "summary": "Inventario de equipos y personas, con acta de entrega en PDF. Seis formatos de papel pasaron a dos.",
+      "tags": ["React", "Tailwind CSS", "Docker"],
+      "status": "En uso en el área de TIC",
+      "video": {
+        "show": true,
+        "src": "/videos/formatos-tic.mp4",
+        "poster": "/videos/formatos-tic-poster.jpg",
+        "description": "Recorrido por el inventario y la creación de un acta, con datos ficticios."
+      },
+      "sections": [
+        {
+          "title": "Problema",
+          "text": "El control se llevaba en seis formatos de papel con información repetida, historial difícil de ubicar y riesgo de pérdida."
+        },
+        {
+          "title": "Solución",
+          "text": "Los seis formatos se unificaron en dos (entrega y devolución). Incluye catálogos de marcas, departamentos, equipos y empleados, estados del equipo, registro de extravíos, actas con firma digital, historial con filtros, búsqueda por serie y marca, exportación a CSV y actas de hasta 10 equipos."
+        },
+        {
+          "title": "Resolución de problemas",
+          "text": "Unificamos seis formatos de papel en dos tras hablar con las áreas que los usaban, y corregimos con el equipo un error que impedía mostrar las firmas en el PDF. Las mejoras salieron del uso real en 13 áreas."
+        },
+        {
+          "title": "Mi rol",
+          "text": "Frontend con asistencia de IA, en pareja con una practicante de backend (Laravel). Participé en el levantamiento de requisitos y en el modelado de datos, diseñé el PDF de actas y apoyé el despliegue."
+        },
+        {
+          "title": "Calidad",
+          "list": [
+            "Mejoras surgidas del uso real en 13 áreas de la empresa.",
+            "Diseño responsive para celular, tablet, laptop y escritorio.",
+            "Corrección, con el equipo, de un error que impedía mostrar las firmas en el PDF."
+          ]
+        },
+        {
+          "title": "Estado",
+          "text": "Entregado el 11 de septiembre de 2026 y en uso como herramienta del área de TIC. Desplegado en Ubuntu Server, en un servidor local de la empresa, con Docker y GitHub Actions (con apoyo del equipo)."
+        }
+      ],
+      "technologies": ["React", "Vite", "Tailwind CSS", "API Laravel", "Docker", "GitHub Actions", "Ubuntu Server"],
+      "demoUrl": null,
+      "siteUrl": null
+    },
+    {
+      "id": "rastro",
+      "image": { "src": "/projects/rastro.webp", "alt": "Rastro: mapa de la ciudad con retos de foto marcados en lugares reales" },
+      "title": "Rastro (Hackathon NextCraft)",
+      "summary": "Mapa para recorrer la ciudad a pie, con retos de foto, audios y recompensas dejados en lugares reales.",
+      "tags": ["Hackathon", "Equipo de 4", "Ideación"],
+      "status": "Participación 2026",
+      "video": { "show": false },
+      "sections": [
+        {
+          "title": "Resumen",
+          "text": "Participación en un hackathon internacional, en un equipo de 4 formado por compañeros de estudio y compañeros nuevos."
+        },
+        {
+          "title": "Reto",
+          "text": "El track era \"Out of the box\" (fuera de lo común)."
+        },
+        {
+          "title": "Idea del equipo",
+          "text": "Nació como una idea tipo Pokémon: en vez de cazar criaturas, se cazan retos en lugares reales. El resultado es Rastro, un mapa para recorrer la ciudad a pie. Abres Rastro y caminas; en el mapa hay retos de fotografía, videos, audios escondidos y recompensas dejados en lugares reales. Cuando te acercas, el teléfono pita: ya estás en el punto. Lo que capturas se guarda en tu galería personal. Quien crea una experiencia decide qué se descubre, quién puede verla y cuándo deja de estar disponible; la ubicación del visitante solo se usa con su permiso."
+        },
+        {
+          "title": "Mi rol",
+          "text": "Fui quien pensó en el track. Ayudé a desenredar la idea y aporté propuestas que subieron el interés del equipo en ese proyecto para no inclinarnos hacia otro. Hice networking con programadores guatemaltecos durante el evento, que se realizó en TEC, zona 4. No aporté código: mi aporte fue la ideación."
+        }
+      ],
+      "technologies": [],
+      "demoUrl": null,
+      "siteUrl": "https://hakaton-cf0f7.web.app/"
+    }
+  ],
+  "about": {
+    "title": "Sobre mí",
+    "paragraphs": [
+      "Soy programador con conocimientos de nivel inicial en backend (Node.js, Express, API REST y SQL) y experiencia desarrollando interfaces de sistemas reales. Con la inteligencia artificial como herramienta potencio lo que sé y busco entregar código de calidad, que reviso y pruebo.",
+      "Me gusta entender un problema de principio a fin: hablar con las personas que lo viven, diseñar la solución, probarla en uso real y mejorarla. Me apoyo en la resolución de problemas, el pensamiento crítico y el trabajo en equipo.",
+      "En mi práctica profesional en LEGUMEX, empresa agroindustrial en El Tejar, Chimaltenango (agosto a septiembre de 2026), desarrollé el frontend de dos sistemas internos, en pareja con una compañera de backend y con apoyo de los ingenieros del área TIC. Trabajé directamente con usuarios de 13 áreas.",
+      "Ahora enfoco mi energía en el backend para poder diseñar y construir sistemas completos por mi cuenta."
+    ],
+    "photo": null,
+    "education": "Bachillerato Industrial y Perito en Computación, Liceo Cristiano Hispanoamericano, Chimaltenango, 2026."
+  },
+  "ai": {
+    "title": "Cómo trabajo con IA",
+    "text": "Uso la IA como herramienta y yo dirijo las decisiones. Mi forma de trabajar incluye orquestar agentes y subagentes, ciclos de iteración y pulido, skills reutilizables, y reglas y convenciones para mantener un stack y un diseño consistentes y cuidar la seguridad. Reviso y pruebo cada cambio antes de aceptarlo. También aprendo con ella: es como tener a mi lado a un programador con mucha experiencia que me explica, me corrige y me enseña buenas prácticas, y así mejoro mi forma de programar cada día."
+  },
+  "skills": {
+    "title": "Habilidades",
+    "groups": [
+      { "title": "Interfaces", "items": ["React", "Vite", "Tailwind CSS", "JavaScript", "HTML5", "CSS3"] },
+      { "title": "Backend (nivel inicial, potenciado con IA)", "items": ["Node.js", "Express", "Postman", "API REST y JSON"] },
+      { "title": "Datos (ampliando conocimientos)", "items": ["PostgreSQL", "SQL"] },
+      { "title": "Herramientas", "items": ["Git", "GitHub", "PowerShell", "Playwright"] },
+      { "title": "Despliegue (con apoyo del equipo)", "items": ["Docker", "GitHub Actions", "Ubuntu Server"] },
+      {
+        "title": "Trabajo con IA",
+        "items": [
+          "Orquestación de agentes y subagentes",
+          "Iteración y pulido",
+          "Skills reutilizables",
+          "Reglas y convenciones",
+          "Revisión y pruebas de cada cambio",
+          "Aprendizaje continuo y buenas prácticas"
+        ]
+      },
+      {
+        "title": "Cómo trabajo",
+        "items": ["Resolución de problemas", "Pensamiento crítico", "Trabajo en equipo", "Atención al detalle"]
+      }
+    ]
+  },
+  "icons": {
+    "React": "devicon:react/react-original",
+    "Vite": "devicon:vitejs/vitejs-original",
+    "Tailwind CSS": "devicon:tailwindcss/tailwindcss-original",
+    "JavaScript": "devicon:javascript/javascript-original",
+    "HTML5": "devicon:html5/html5-original",
+    "CSS3": "devicon:css3/css3-original",
+    "Node.js": "devicon:nodejs/nodejs-original",
+    "Express": "devicon:express/express-original",
+    "Postman": "devicon:postman/postman-original",
+    "API REST y JSON": "devicon:json/json-original",
+    "Consumo de API REST": "devicon:json/json-original",
+    "PostgreSQL": "devicon:postgresql/postgresql-original",
+    "SQL": "lucide:database",
+    "Git": "devicon:git/git-original",
+    "GitHub": "devicon:github/github-original",
+    "PowerShell": "devicon:powershell/powershell-original",
+    "Playwright": "devicon:playwright/playwright-original",
+    "Docker": "devicon:docker/docker-original",
+    "GitHub Actions": "devicon:githubactions/githubactions-original",
+    "Ubuntu Server": "devicon:ubuntu/ubuntu-original",
+    "API Laravel": "devicon:laravel/laravel-original",
+    "Orquestación de agentes y subagentes": "lucide:workflow",
+    "Iteración y pulido": "lucide:refresh",
+    "Skills reutilizables": "lucide:blocks",
+    "Reglas y convenciones": "lucide:list",
+    "Revisión y pruebas de cada cambio": "lucide:check",
+    "Aprendizaje continuo y buenas prácticas": "lucide:book",
+    "Resolución de problemas": "lucide:puzzle",
+    "Pensamiento crítico": "lucide:brain",
+    "Trabajo en equipo": "lucide:users",
+    "Atención al detalle": "lucide:search"
+  },
+  "contact": {
+    "title": "Contacto",
+    "message": "Escríbeme y te respondo lo antes posible.",
+    "language": "Español",
+    "availability": "Cualquier horario"
+  }
+}

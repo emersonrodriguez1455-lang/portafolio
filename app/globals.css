@@ -1,0 +1,569 @@
+@import 'tailwindcss';
+
+/* Tokens del archivo de estilo de Emerson (DESIGN.md / tokens.json) */
+@theme {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-canvas: #e5e5e5;
+  --color-mist: #f3f3f3;
+  --color-ash: #c6c6c6;
+  --color-smoke: #979797;
+  --color-slate: #444444;
+  --color-graphite: #2f2f2f;
+  --color-mint: #d1ffca;
+  --color-volt: #fff100;
+
+  --font-display: var(--font-anton), 'Bebas Neue', sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --radius-card: 2rem;
+  --radius-pill: 4rem;
+}
+
+:root {
+  /* Tokens fluidos. Mínimos = valores actuales de celular, así el celular no cambia; crecen con el ancho de pantalla. */
+  --pad-x: clamp(1.25rem, 2.2vw + 0.75rem, 4rem); /* margen lateral */
+  --pad-y: clamp(2rem, 6vw, 7rem); /* espacio entre secciones */
+  --gap: clamp(0.75rem, 1.5vw, 2rem);
+  --icon: clamp(1.25rem, 1.2vw + 0.8rem, 2.5rem); /* íconos de interfaz */
+  --icon-skill: clamp(2rem, 1.2vw + 1.5rem, 3.5rem); /* logos de habilidades */
+  --nav-top: clamp(0.5rem, 1.5vw, 1.5rem); /* separación de la píldora fija con el borde superior */
+
+  /* Movimiento (regla 100/300/500): presionar 120 ms · hover 220 ms · entradas 500–800 ms.
+     Entradas con ease-out (arrancan rápido y frenan suave); cambios de estado con curva estándar. */
+  --dur-press: 120ms;
+  --dur-hover: 220ms;
+  --dur-enter: 600ms;
+  --dur-image: 800ms;
+  --stagger: 70ms;
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-state: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ancho de página en rem: acompaña la escala fluida, así en un monitor grande ocupa la misma proporción */
+@utility container-page {
+  width: 100%;
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+@layer base {
+  html {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+    @media (width >= 48rem) {
+      scroll-padding-top: 6rem;
+    }
+    /* Escala fluida desde laptop: todo el sistema está en rem, así crece o se achica con el monitor
+       sin perder proporciones. 1024–1279 px = 16 px (sin bajada respecto a tablet) · 1366 ≈ 16.5 · 1680 ≈ 18.5 · 1920 = 20 · tope 24. */
+    @media (width >= 64rem) {
+      font-size: 1rem;
+    }
+    @media (width >= 80rem) {
+      font-size: clamp(1rem, 0.5rem + 0.625vw, 1.5rem);
+    }
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+  /* Tailwind v4 deja `cursor: default` en los botones: todo lo clicable muestra la manita */
+  a[href],
+  button,
+  [role='button'],
+  summary {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+  /* Evita que la página se desplace detrás de la tarjeta expandida, sin JavaScript */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+  dialog::backdrop {
+    background: rgb(0 0 0 / 0.6);
+  }
+  /* "Reducir movimiento" del sistema: se apagan los desplazamientos grandes (scroll suave, entradas que suben,
+     expansión de tarjetas), que pasan a fundidos. Los microefectos cortos de respuesta al mouse (botones, píldora
+     de navegación) se mantienen: son pequeños y los inicia la persona. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Flecha/ícono de los botones: se adelanta al pasar el mouse (solo `translate`, va por GPU) */
+  .btn-dark svg,
+  .btn-ghost svg {
+    transition: translate 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn-dark:hover svg,
+  .btn-ghost:hover svg {
+    translate: 0.125rem -0.125rem;
+  }
+  /* Titular de sección: condensado, mayúsculas, interlineado 0.9 */
+  .display-heading {
+    @apply font-display text-5xl leading-[0.9] tracking-[-0.03em] uppercase md:text-7xl lg:text-8xl;
+  }
+  /* Botones: al presionar se hunden levemente, como la presión del dedo */
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-6 py-3 text-base font-medium text-paper select-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-[0.25rem] border-[0.094rem] border-slate px-4 py-3 text-base font-medium text-slate select-none;
+  }
+  /* Hover: crece 10 % (20 px → 22 px). Presionar: se hunde al 95 %.
+     Ojo: Tailwind v4 anima con la propiedad `scale`, por eso se transiciona `scale` y no `transform`. */
+  .btn-dark,
+  .btn-ghost {
+    transition:
+      scale var(--dur-hover) var(--ease-state),
+      opacity var(--dur-hover) var(--ease-state),
+      background-color var(--dur-hover) var(--ease-state);
+  }
+  @media (hover: hover), (any-hover: hover) {
+    .btn-dark:hover,
+    .btn-ghost:hover {
+      scale: 1.1;
+    }
+    .btn-dark:hover {
+      opacity: 0.85;
+    }
+    .btn-ghost:hover {
+      background-color: var(--color-paper);
+    }
+  }
+  .btn-dark:active,
+  .btn-ghost:active {
+    scale: 0.95;
+    transition-duration: var(--dur-press);
+  }
+  .btn-disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+  .btn-disabled:hover,
+  .btn-disabled:active {
+    scale: 1;
+    opacity: 0.5;
+    background-color: transparent;
+  }
+  .mint-tag {
+    @apply inline-flex items-center rounded-pill bg-mint px-3 py-1 font-mono text-xs tracking-[-0.03em] transition-transform duration-200 ease-out hover:-translate-y-0.5;
+  }
+  .mono-label {
+    @apply font-mono text-xs tracking-[-0.03em] text-slate uppercase;
+  }
+}
+
+/* Movimiento: solo si la persona no pidió reducirlo. Sin JavaScript. */
+.skill-icon {
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+/* Solo con mouse: en pantallas táctiles el :hover se queda "pegado" después de tocar */
+@media (hover: hover) {
+  .group:hover .skill-icon {
+    transform: translateY(-0.25rem) scale(1.3);
+    filter: drop-shadow(0 0.5rem 0.5rem rgb(0 0 0 / 0.12));
+  }
+}
+
+/* Indicador de la navegación: se desliza y estira hasta el enlace activo, con un leve rebote */
+.nav-indicator {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: var(--ind-w, 0);
+  transform: translateX(var(--ind-x, 0));
+  border-radius: 1.375rem;
+  background: var(--color-canvas);
+  opacity: 0;
+}
+@media (width >= 48rem) {
+  .nav-indicator {
+    border-radius: 3rem;
+  }
+}
+.nav-list[data-ready] .nav-indicator {
+  opacity: 1;
+  transition:
+    transform 0.45s cubic-bezier(0.3, 1.25, 0.5, 1),
+    width 0.45s cubic-bezier(0.3, 1.25, 0.5, 1),
+    opacity 0.2s ease;
+}
+
+/* Halo menta detrás de cada titular de sección: se enciende cuando empieza a escribirse */
+.heading-glow {
+  position: relative;
+  isolation: isolate;
+  --glow-alpha: 0.75;
+}
+.heading-glow[data-tone='dark'] {
+  --glow-alpha: 0.2;
+}
+.heading-glow::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -35% -10% -35% -12%;
+  background: radial-gradient(50% 60% at 30% 50%, rgb(209 255 202 / var(--glow-alpha)), transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.heading-glow:not([data-tw='idle'])::before {
+  opacity: 1;
+  transform: none;
+}
+
+/* La máquina de escribir de los titulares espera en pausa hasta que el titular entra en pantalla */
+[data-tw='idle'] .tw-char,
+[data-tw='idle'] .tw-char::after,
+[data-tw='idle'] .tw-caret {
+  animation-play-state: paused;
+}
+
+/* Entrada al hacer scroll (componente <Reveal>): una sola vez, cuando el bloque asoma en pantalla.
+   Solo se oculta con JavaScript activo; sin él el contenido se ve siempre.
+   Las animaciones usan fill "backwards": mantienen el estado inicial durante el retraso y se sueltan al
+   terminar, así no bloquean los efectos hover (p. ej. la opacidad de los botones). */
+@media (scripting: enabled) {
+  /* Secciones: cada bloque sube 24 px y aparece (500 ms), en cascada de 70 ms */
+  [data-reveal='section']:not([data-in]) > section > *,
+  [data-reveal='list'] > :not([data-in]) {
+    opacity: 0;
+  }
+  [data-reveal='section'][data-in] > section > * {
+    animation: sec-in 500ms var(--ease-out) backwards;
+    animation-delay: calc(var(--reveal-base, 0ms) + var(--reveal-i, 0) * var(--stagger));
+  }
+  [data-reveal] > * > :nth-child(2) {
+    --reveal-i: 1;
+  }
+  [data-reveal] > * > :nth-child(3) {
+    --reveal-i: 2;
+  }
+  [data-reveal] > * > :nth-child(n + 4) {
+    --reveal-i: 3;
+  }
+
+  /* Tarjetas de proyecto: la tarjeta sube 32 px y aparece; la portada se revela con barrido y zoom suave;
+     etiqueta → título → descripción → tags → botón entran en cascada de 70 ms.
+     --reveal-i (la pone Reveal) escalona las tarjetas entre sí, 90 ms. */
+  [data-reveal='list'] > [data-in] {
+    --card-t: calc(var(--reveal-base, 0ms) + var(--reveal-i, 0) * 90ms);
+    animation: card-in var(--dur-enter) var(--ease-out) backwards;
+    animation-delay: var(--card-t);
+  }
+  [data-reveal='list'] > [data-in] [data-media] {
+    animation: media-reveal var(--dur-image) var(--ease-out) backwards;
+    animation-delay: calc(var(--card-t) + 80ms);
+  }
+  [data-reveal='list'] > [data-in] [data-media] img {
+    animation: media-zoom var(--dur-image) var(--ease-out) backwards;
+    animation-delay: calc(var(--card-t) + 80ms);
+  }
+  [data-reveal='list'] > [data-in] article > :not([data-media]) {
+    animation: part-in 500ms var(--ease-out) backwards;
+    animation-delay: calc(var(--card-t) + 120ms + var(--k, 0) * var(--stagger));
+  }
+  [data-reveal='list'] article > :nth-child(3) {
+    --k: 1;
+  }
+  [data-reveal='list'] article > :nth-child(4) {
+    --k: 2;
+  }
+  [data-reveal='list'] article > :nth-child(5) {
+    --k: 3;
+  }
+  [data-reveal='list'] article > :nth-child(6) {
+    --k: 4;
+  }
+
+  /* Salto desde la navegación: lo que se cruza en el camino ya está a la vista; el destino espera para su entrada */
+  html[data-nav-scrolling] [data-reveal]:not([data-target]) > section > *,
+  html[data-nav-scrolling] [data-reveal='list']:not([data-target]) > *,
+  html[data-nav-scrolling] [data-reveal]:not([data-target]) [data-media],
+  html[data-nav-scrolling] [data-reveal]:not([data-target]) [data-media] img,
+  html[data-nav-scrolling] [data-reveal]:not([data-target]) article > * {
+    opacity: 1;
+    animation: none;
+  }
+  html[data-nav-scrolling] [data-reveal]:not([data-target]) .tw-char,
+  html[data-nav-scrolling] [data-reveal]:not([data-target]) .tw-char::after {
+    animation: none;
+  }
+
+  /* Respaldo accesible: con "reducir movimiento" solo se funde, sin desplazar nada */
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal='section'][data-in] > section > *,
+    [data-reveal='list'] > [data-in] {
+      animation: fade-in 300ms linear backwards;
+      animation-delay: 0ms;
+    }
+    [data-reveal='list'] > [data-in] [data-media],
+    [data-reveal='list'] > [data-in] [data-media] img,
+    [data-reveal='list'] > [data-in] article > :not([data-media]) {
+      animation: none;
+    }
+  }
+}
+@keyframes sec-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}
+@keyframes part-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+@keyframes media-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes media-zoom {
+  from {
+    transform: scale(1.08);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Halo menta detrás del titular, aparece al abrir */
+.hero-glow {
+  position: relative;
+  isolation: isolate;
+}
+#proyectos {
+  overflow-x: clip; /* el halo sigue sangrando hasta el borde de la pantalla, pero ya no ensancha el body */
+}
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -1.5rem -10% -2rem -20%;
+  background:
+    radial-gradient(40% 60% at 20% 40%, rgb(209 255 202 / 0.9), transparent 70%),
+    radial-gradient(30% 40% at 70% 20%, rgb(255 241 0 / 0.18), transparent 70%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+/* Máquina de escribir (solo al abrir): cada letra aparece en su turno
+   y el cursor la acompaña mientras es la última escrita.
+   Corre siempre, también con "reducir movimiento" de Windows/macOS,
+   porque solo cambia la opacidad: no desplaza ni escala nada. */
+.tw-char {
+  /* Interpolación lineal en lugar de steps(1): con duraciones muy cortas,
+     steps() puede quedarse en el primer paso por redondeo y dejar letras invisibles. */
+  animation: tw-in 20ms linear both;
+  animation-delay: calc(var(--tw-start) + var(--i) * var(--tw-speed));
+}
+.tw-char::after {
+  content: '';
+  position: absolute;
+  top: 0.34em;
+  bottom: 0.3em;
+  right: -0.07em;
+  width: 0.07em;
+  background: currentColor;
+  opacity: 0;
+  animation: tw-cursor var(--tw-speed) linear forwards;
+  animation-delay: calc(var(--tw-start) + var(--i) * var(--tw-speed));
+}
+.tw-caret {
+  animation: tw-blink 0.9s linear 4;
+  animation-delay: var(--tw-end);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise var(--dur-enter) var(--ease-out) both;
+    animation-delay: var(--d, 0ms);
+  }
+  .hero-glow::before {
+    animation: glow-in 1.6s ease-out both;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 60;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-mint), var(--color-ink));
+      transform-origin: 0 50%;
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes glow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+@keyframes tw-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes tw-cursor {
+  0%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes tw-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Cursor final: oculto por defecto (y siempre con "reducir movimiento") */
+.tw-char {
+  position: relative;
+}
+.tw-caret {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.86em;
+  margin-left: 0.04em;
+  background: currentColor;
+  opacity: 0;
+}
+
+/* Tarjeta de caso: en celular es una hoja que sube desde abajo; desde tablet entra subiendo y creciendo.
+   Al cerrar hace lo inverso. */
+.case-dialog {
+  --case-from: translateY(100%);
+  opacity: 0;
+  transform: var(--case-from);
+  transition:
+    opacity 0.25s ease,
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    overlay 0.45s allow-discrete,
+    display 0.45s allow-discrete;
+}
+@media (width >= 48rem) {
+  .case-dialog {
+    --case-from: translateY(2rem) scale(0.96);
+  }
+}
+.case-dialog[open] {
+  opacity: 1;
+  transform: none;
+}
+/* Con la expansión desde la tarjeta, el movimiento lo hace JavaScript (Web Animations): aquí no se transiciona nada */
+.case-dialog[data-expand] {
+  transition: none;
+}
+.case-dialog::backdrop {
+  background: rgb(0 0 0 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background-color 0.3s ease,
+    backdrop-filter 0.3s ease,
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+}
+.case-dialog[open]::backdrop {
+  background: rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(4px);
+}
+@starting-style {
+  .case-dialog[open] {
+    opacity: 0;
+    transform: var(--case-from);
+  }
+  .case-dialog[open]::backdrop {
+    background: rgb(0 0 0 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+/* El contenido del caso aparece en cascada después de abrir */
+@media (prefers-reduced-motion: no-preference) {
+  .case-body > * {
+    animation: rise 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .case-body > :nth-child(2) { animation-delay: 60ms; }
+  .case-body > :nth-child(3) { animation-delay: 120ms; }
+  .case-body > :nth-child(4) { animation-delay: 180ms; }
+  .case-body > :nth-child(5) { animation-delay: 240ms; }
+  .case-body > :nth-child(6) { animation-delay: 300ms; }
+  .case-body > :nth-child(n + 7) { animation-delay: 360ms; }
+}
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+/* Ilustración de Sobre mí: las tarjetas flotan apenas (6 px). Decorativo: se detiene con "reducir movimiento" */
+@media (prefers-reduced-motion: no-preference) {
+  .float {
+    animation: float 5s ease-in-out infinite alternate;
+    animation-delay: var(--fd, 0s);
+  }
+}
+@keyframes float {
+  to {
+    transform: translateY(-0.375rem);
+  }
+}

@@ -2,38 +2,57 @@
   "site": {
     "name": "Emerson Sontay",
     "fullName": "Emerson Gerardo Sontay Rodríguez",
-    "role": "Programador Backend",
-    "headline": "Programador Backend Junior | Node.js, Express, SQL · Frontend asistido con IA",
+    "role": "Desarrollador Junior",
+    "headline": "Desarrollador Junior | Experiencia en frontend (React) · Enfocado en backend (Node.js, Express, SQL)",
     "location": "Chimaltenango, Guatemala",
     "email": "emersonrodriguez1455@gmail.com",
     "whatsappUrl": "https://wa.me/50254394463",
-    "githubUrl": null,
+    "githubUrl": "https://github.com/emersonrodriguez1455-lang",
     "cvUrl": "/cv/emerson-sontay-cv.pdf"
   },
   "nav": [
-    { "label": "Proyectos", "href": "#proyectos" },
-    { "label": "Sobre mí",       "href": "#sobre-mi"
+    {
+      "label": "Proyectos",
+      "href": "#proyectos"
+    },
+    {
+      "label": "Sobre mí",
+      "href": "#sobre-mi"
     },
     {
       "label": "Habilidades",
       "href": "#habilidades"
     },
-    { "label": "Contacto", "href": "#contacto" }
+    {
+      "label": "Contacto",
+      "href": "#contacto"
+    }
   ],
   "hero": {
     "greeting": "Hola, soy Emerson Sontay",
-    "title": "Programador Backend",
-    "focus": ["Junior", "Frontend", "Asistido con IA"],
-    "summary": "Mi base es el backend: Node.js, Express y SQL, donde tengo conocimientos propios. Uso la inteligencia artificial en los dos lados: en el frontend para construir interfaces más rápido y en el backend para revisar, depurar y aprender. Así puedo entregar proyectos más grandes y robustos, aprendiendo con la IA en cada paso."
+    "title": "Desarrollador Junior",
+    "focus": [
+      "Junior",
+      "Frontend",
+      "Asistido con IA"
+    ],
+    "summary": "Tengo experiencia en frontend con React, desarrollada en una práctica real en LEGUMEX. Mi enfoque es el backend (Node.js, Express, SQL; nivel inicial), que estoy estudiando. Uso la IA como herramienta de apoyo y reviso y pruebo lo que entrego."
   },
-  "projectsIntro": "Programador Backend Junior: backend con base propia y frontend, asistido con inteligencia artificial.",
+  "projectsIntro": "Desarrollador Junior: experiencia en frontend con React y enfoque en backend, con la IA como herramienta de apoyo.",
   "projects": [
     {
       "id": "tickets-tic",
-      "image": { "src": "/projects/tickets-tic.webp", "alt": "Bandeja de tickets del sistema: tarjetas por prioridad y estado" },
+      "image": {
+        "src": "/projects/tickets-tic.webp",
+        "alt": "Bandeja de tickets del sistema: tarjetas por prioridad y estado"
+      },
       "title": "Sistema de Tickets TIC",
       "summary": "Canal para que los colaboradores reporten fallas técnicas y el área de TIC les dé seguimiento.",
-      "tags": ["React", "Tailwind CSS", "API REST"],
+      "tags": [
+        "React",
+        "Tailwind CSS",
+        "API REST"
+      ],
       "status": "Presentado, previsto para toda la empresa",
       "video": {
         "show": true,
@@ -68,19 +87,32 @@
         },
         {
           "title": "Estado",
-          "text": "Presentado al jefe de TIC el 25 de septiembre de 2026 y previsto para uso de toda la empresa."
+          "text": "Presentado al jefe de TIC el 25 de septiembre de 2026, para toda la empresa."
         }
       ],
-      "technologies": ["React", "Vite", "Tailwind CSS", "Consumo de API REST", "Playwright"],
+      "technologies": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Consumo de API REST",
+        "Playwright"
+      ],
       "demoUrl": null,
       "siteUrl": null
     },
     {
       "id": "formatos-tic",
-      "image": { "src": "/projects/formatos-tic.webp", "alt": "Pantalla Nueva Acta del sistema de formatos, con entrega y devolución de equipo" },
+      "image": {
+        "src": "/projects/formatos-tic.webp",
+        "alt": "Pantalla Nueva Acta del sistema de formatos, con entrega y devolución de equipo"
+      },
       "title": "Sistema de Formatos TIC",
       "summary": "Inventario de equipos y personas, con acta de entrega en PDF. Seis formatos de papel pasaron a dos.",
-      "tags": ["React", "Tailwind CSS", "Docker"],
+      "tags": [
+        "React",
+        "Tailwind CSS",
+        "API Laravel"
+      ],
       "status": "En uso en el área de TIC",
       "video": {
         "show": true,
@@ -99,37 +131,51 @@
         },
         {
           "title": "Resolución de problemas",
-          "text": "Unificamos seis formatos de papel en dos tras hablar con las áreas que los usaban, y corregimos con el equipo un error que impedía mostrar las firmas en el PDF. Las mejoras salieron del uso real en 13 áreas."
+          "text": "Unificamos seis formatos de papel en dos tras hablar con las áreas que los usaban, y corregimos con el equipo un error que impedía mostrar las firmas en el PDF. Las mejoras salieron del uso real."
         },
         {
           "title": "Mi rol",
-          "text": "Frontend con asistencia de IA, en pareja con una practicante de backend (Laravel). Participé en el levantamiento de requisitos y en el modelado de datos, diseñé el PDF de actas y apoyé el despliegue."
+          "text": "Frontend con asistencia de IA, en pareja con una practicante de backend (Laravel). Participé en el levantamiento de requisitos y al inicio del modelado de datos, con ideas sobre qué tablas se necesitaban. Diseñé el PDF de actas. Vi el despliegue que hizo el equipo y entendí una parte."
         },
         {
           "title": "Calidad",
           "list": [
-            "Mejoras surgidas del uso real en 13 áreas de la empresa.",
+            "Mejoras surgidas del uso real.",
             "Diseño responsive para celular, tablet, laptop y escritorio.",
             "Corrección, con el equipo, de un error que impedía mostrar las firmas en el PDF."
           ]
         },
         {
           "title": "Estado",
-          "text": "Entregado el 11 de septiembre de 2026 y en uso como herramienta del área de TIC. Desplegado en Ubuntu Server, en un servidor local de la empresa, con Docker y GitHub Actions (con apoyo del equipo)."
+          "text": "Entregado el 11 de septiembre de 2026 y en uso solo en el área de TIC. Desplegado en Ubuntu Server, en un servidor local de la empresa. El despliegue lo hizo el equipo."
         }
       ],
-      "technologies": ["React", "Vite", "Tailwind CSS", "API Laravel", "Docker", "GitHub Actions", "Ubuntu Server"],
+      "technologies": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "API Laravel"
+      ],
       "demoUrl": null,
       "siteUrl": null
     },
     {
       "id": "rastro",
-      "image": { "src": "/projects/rastro.webp", "alt": "Rastro: mapa de la ciudad con retos de foto marcados en lugares reales" },
+      "image": {
+        "src": "/projects/rastro.webp",
+        "alt": "Rastro: mapa de la ciudad con retos de foto marcados en lugares reales"
+      },
       "title": "Rastro (Hackathon NextCraft)",
       "summary": "Mapa para recorrer la ciudad a pie, con retos de foto, audios y recompensas dejados en lugares reales.",
-      "tags": ["Hackathon", "Equipo de 4", "Ideación"],
+      "tags": [
+        "Hackathon",
+        "Equipo de 4",
+        "Ideación"
+      ],
       "status": "Participación 2026",
-      "video": { "show": false },
+      "video": {
+        "show": false
+      },
       "sections": [
         {
           "title": "Resumen",
@@ -145,7 +191,7 @@
         },
         {
           "title": "Mi rol",
-          "text": "Fui quien pensó en el track. Ayudé a desenredar la idea y aporté propuestas que subieron el interés del equipo en ese proyecto para no inclinarnos hacia otro. Hice networking con programadores guatemaltecos durante el evento, que se realizó en TEC, zona 4. No aporté código: mi aporte fue la ideación."
+          "text": "Aporté investigación e ideas, como el formato de retos, y el diseño junto al compañero que hizo el frontend. Investigué una idea anterior para creadores de contenido, que se descartó porque LinkedIn, X e Instagram no aceptan automatizaciones y su API tiene costo. Hice networking con programadores guatemaltecos durante el evento, en TEC, zona 4. No aporté código."
         }
       ],
       "technologies": [],
@@ -156,10 +202,10 @@
   "about": {
     "title": "Sobre mí",
     "paragraphs": [
-      "Soy programador con conocimientos de nivel inicial en backend (Node.js, Express, API REST y SQL) y experiencia desarrollando interfaces de sistemas reales. Con la inteligencia artificial como herramienta potencio lo que sé y busco entregar código de calidad, que reviso y pruebo.",
+      "Soy desarrollador junior con experiencia en frontend (React) en sistemas reales. Tengo conocimientos de nivel inicial en backend (Node.js, Express, API REST) y en bases de datos (PostgreSQL, MySQL y SQLite), que sigo estudiando. Uso la inteligencia artificial como herramienta de apoyo y reviso y pruebo lo que entrego.",
       "Me gusta entender un problema de principio a fin: hablar con las personas que lo viven, diseñar la solución, probarla en uso real y mejorarla. Me apoyo en la resolución de problemas, el pensamiento crítico y el trabajo en equipo.",
-      "En mi práctica profesional en LEGUMEX, empresa agroindustrial en El Tejar, Chimaltenango (agosto a septiembre de 2026), desarrollé el frontend de dos sistemas internos, en pareja con una compañera de backend y con apoyo de los ingenieros del área TIC. Trabajé directamente con usuarios de 13 áreas.",
-      "Ahora enfoco mi energía en el backend para poder diseñar y construir sistemas completos por mi cuenta."
+      "En mi práctica profesional en LEGUMEX, empresa agroindustrial en El Tejar, Chimaltenango (agosto a septiembre de 2026), desarrollé el frontend de dos sistemas internos, en pareja con una compañera de backend y con apoyo de los ingenieros del área TIC. Registré actas de entrega con usuarios de 13 áreas.",
+      "Ahora enfoco mi energía en el backend, que estoy estudiando, para poder construir sistemas completos."
     ],
     "photo": null,
     "education": "Bachillerato Industrial y Perito en Computación, Liceo Cristiano Hispanoamericano, Chimaltenango, 2026. Ingeniería en Sistemas, Universidad Mariano Gálvez (inicio previsto 2027)."
@@ -172,19 +218,25 @@
     "title": "Habilidades",
     "groups": [
       {
-        "title": "Interfaces",
+        "title": "Lenguajes",
         "items": [
-          "React",
-          "Vite",
-          "Tailwind CSS",
           "JavaScript",
           "HTML5",
           "CSS3",
+          "SQL"
+        ]
+      },
+      {
+        "title": "Frameworks y frontend",
+        "items": [
+          "React",
+          "Tailwind CSS",
+          "Vite",
           "Diseño responsive"
         ]
       },
       {
-        "title": "Backend (nivel inicial, potenciado con IA)",
+        "title": "Backend (en estudio, nivel inicial)",
         "items": [
           "Node.js",
           "Express",
@@ -193,28 +245,40 @@
         ]
       },
       {
-        "title": "Datos (ampliando conocimientos)",
+        "title": "Bases de datos (nivel básico)",
         "items": [
           "PostgreSQL",
-          "SQL"
-        ]
+          "MySQL",
+          "SQLite",
+          "Supabase",
+          "phpMyAdmin (XAMPP)"
+        ],
+        "note": "Creo tablas y llaves foráneas, levanto una base de datos y la conecto desde el backend. Estoy practicando relaciones, consultas con INNER JOIN e índices."
       },
       {
         "title": "Herramientas",
         "items": [
           "Git",
           "GitHub",
-          "PowerShell",
-          "Playwright"
+          "PowerShell (comandos básicos)",
+          "Playwright (scripts generados por IA)"
         ]
       },
       {
-        "title": "Despliegue (con apoyo del equipo)",
+        "title": "Despliegue (lo he usado yo)",
+        "items": [
+          "Vercel",
+          "Render"
+        ]
+      },
+      {
+        "title": "Visto en la práctica",
         "items": [
           "Docker",
           "GitHub Actions",
           "Ubuntu Server"
-        ]
+        ],
+        "note": "Lo hizo el equipo; entendí una parte."
       },
       {
         "title": "Trabajo con IA",
@@ -228,21 +292,11 @@
       {
         "title": "Soporte TI",
         "items": [
-          "Atención a usuarios",
-          "Tickets e incidencias",
-          "Priorización y escalamiento",
           "Inventario de equipos",
           "Actas de entrega",
-          "Documentación de procesos"
-        ]
-      },
-      {
-        "title": "Cómo trabajo",
-        "items": [
+          "Trato con usuarios",
           "Resolución de problemas",
-          "Pensamiento crítico",
-          "Trabajo en equipo",
-          "Atención al detalle"
+          "Limpieza preventiva"
         ]
       }
     ]
@@ -283,7 +337,17 @@
     "Priorización y escalamiento": "lucide:workflow",
     "Inventario de equipos": "lucide:database",
     "Actas de entrega": "lucide:check",
-    "Documentación de procesos": "lucide:book"
+    "Documentación de procesos": "lucide:book",
+    "PowerShell (comandos básicos)": "devicon:powershell/powershell-original",
+    "Playwright (scripts generados por IA)": "devicon:playwright/playwright-original",
+    "Vercel": "devicon:vercel/vercel-original",
+    "Render": "lucide:cloud",
+    "Trato con usuarios": "lucide:users",
+    "Limpieza preventiva": "lucide:check",
+    "MySQL": "devicon:mysql/mysql-original",
+    "SQLite": "devicon:sqlite/sqlite-original",
+    "Supabase": "devicon:supabase/supabase-original",
+    "phpMyAdmin (XAMPP)": "lucide:database"
   },
   "contact": {
     "title": "Contacto",

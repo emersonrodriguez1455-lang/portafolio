@@ -28,6 +28,9 @@ export function SkillsSection() {
                 </li>
               ))}
             </ul>
+            {'note' in group && group.note ? (
+              <p className="text-xs leading-relaxed text-graphite">{group.note}</p>
+            ) : null}
           </article>
         ))}
       </div>

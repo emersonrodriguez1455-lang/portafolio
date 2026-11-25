@@ -79,3 +79,13 @@ components/ui-bits.tsx      Piezas pequeñas: marcador PENDIENTE, insignia, íco
 6. Pasa el título, la descripción y las etiquetas Open Graph de `layout.tsx` a `index.html`.
 7. Configura el alias `@/` en `vite.config.ts` y `tsconfig.json`, o usa rutas relativas.
 8. Pasa los encabezados de seguridad de `next.config.mjs` a `vercel.json`.
+
+## SEO, IA y analítica
+
+- Metadatos, Open Graph, canonical y JSON-LD (Person, WebSite, ProfilePage) en `app/layout.tsx` y `lib/site.ts`.
+- `app/sitemap.ts` → `/sitemap.xml`, `app/robots.ts` → `/robots.txt` (permite buscadores y rastreadores de IA), `public/llms.txt` → `/llms.txt`.
+- Vercel Web Analytics y Speed Insights se cargan solo en producción (se ven en el panel del proyecto en Vercel).
+- Variables opcionales en Vercel (Settings → Environment Variables, luego volver a desplegar):
+  - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`: código de Google Search Console (solo el valor de `content`).
+  - `NEXT_PUBLIC_GA_ID`: ID de Google Analytics 4 (`G-XXXXXXXXXX`). Sin esta variable, GA4 queda apagado.
+  - `NEXT_PUBLIC_SITE_URL`: si se conecta un dominio propio.

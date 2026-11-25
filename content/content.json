@@ -8,6 +8,7 @@
     "email": "emersonrodriguez1455@gmail.com",
     "whatsappUrl": "https://wa.me/50254394463",
     "githubUrl": "https://github.com/emersonrodriguez1455-lang",
+    "linkedinUrl": "https://www.linkedin.com/in/emerson-sontay-rodriguez-253090334/",
     "cvUrl": "/cv/emerson-sontay-cv.pdf"
   },
   "nav": [
@@ -29,7 +30,7 @@
     }
   ],
   "hero": {
-    "greeting": "Hola, soy Emerson Sontay",
+    "greeting": "Hola, soy Emerson Gerardo Sontay Rodríguez",
     "title": "Desarrollador Junior",
     "focus": [
       "Junior",

@@ -8,6 +8,7 @@ import { SectionHeading } from '@/components/section-heading'
 export function ContactSection() {
   const { site, contact } = content
   const githubUrl: string | null = site.githubUrl
+  const linkedinUrl: string | null = site.linkedinUrl ?? null
 
   const details = [
     { label: 'Ubicación', value: site.location },
@@ -39,8 +40,13 @@ export function ContactSection() {
             Escribir por WhatsApp
           </a>
           {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+            <a href={githubUrl} target="_blank" rel="me noopener noreferrer" className="btn-ghost">
               GitHub
+            </a>
+          )}
+          {linkedinUrl && (
+            <a href={linkedinUrl} target="_blank" rel="me noopener noreferrer" className="btn-ghost">
+              LinkedIn
             </a>
           )}
         </div>

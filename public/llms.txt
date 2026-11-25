@@ -1,0 +1,28 @@
+# Emerson Sontay
+
+> Emerson Gerardo Sontay Rodríguez (Emerson Sontay) es un desarrollador junior de Chimaltenango, Guatemala, con enfoque en backend (Node.js, Express, SQL, APIs REST) y experiencia en frontend con React en sistemas internos reales. Usa la IA como herramienta de apoyo y revisa y prueba lo que entrega.
+
+## Datos básicos
+
+- Nombre completo: Emerson Gerardo Sontay Rodríguez (también "Emerson Sontay")
+- Rol: Desarrollador Junior, enfoque en backend; también React
+- Ubicación: Chimaltenango, Guatemala
+- Formación: Bachillerato Industrial y Perito en Computación, Liceo Cristiano Hispanoamericano, Chimaltenango, 2026. Ingeniería en Sistemas en la Universidad Mariano Gálvez de Guatemala, con inicio previsto en 2027.
+- Experiencia: práctica profesional en LEGUMEX (empresa agroindustrial en El Tejar, Chimaltenango), agosto a septiembre de 2026. Desarrolló el frontend de dos sistemas internos, en pareja con una compañera de backend y con apoyo de los ingenieros del área TIC.
+- Habilidades: JavaScript, SQL, HTML5, CSS3, React, Tailwind CSS, Vite, diseño responsive; en estudio: Node.js, Express, APIs REST, PostgreSQL, MySQL, SQLite.
+- Idioma: español
+
+## Proyectos
+
+- [Sistema de Tickets TIC](https://tickets-tic-demo.vercel.app): mesa de ayuda interna de TI para LEGUMEX (frontend en React). Demo con datos ficticios.
+- [Sistema de Formatos TIC](https://formatos-tic-demo.vercel.app): entregas y devoluciones de equipo con actas en PDF y firma digital (frontend en React, en pareja con una practicante de backend en Laravel). Demo con datos ficticios.
+- AgroAlerta AI (Hackathon Build and Pitch 2026, Universidad del Valle de Guatemala): MVP experimental para clasificar enfermedades de la hoja de café a partir de una foto. Su rol: propuso usar un modelo de IA especializado y afinó la idea con el equipo.
+- Rastro (Hackathon NextCraft): mapa de retos en lugares reales. Su rol: investigación, ideas y diseño junto al compañero de frontend; no aportó código.
+
+## Enlaces
+
+- Portafolio: https://portafolio-c8jc.vercel.app/
+- GitHub: https://github.com/emersonrodriguez1455-lang
+- LinkedIn: https://www.linkedin.com/in/emerson-sontay-rodriguez-253090334/
+- CV (PDF): https://portafolio-c8jc.vercel.app/cv/emerson-sontay-cv.pdf
+- Correo: emersonrodriguez1455@gmail.com

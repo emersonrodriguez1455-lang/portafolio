@@ -40,6 +40,8 @@ export function ProjectsSection() {
           data-text={hero.title}
           className="shine-title font-display text-5xl leading-[0.9] tracking-[-0.03em] uppercase md:text-7xl lg:text-[5.5rem]"
         >
+          {/* Nombre completo para buscadores y lectores de pantalla; a la vista se mantiene el titular */}
+          <span className="sr-only">{content.site.fullName}, </span>
           <Typewriter text={hero.title} start={300} speed={38} caret />
         </h1>
 

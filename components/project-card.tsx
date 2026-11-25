@@ -1,4 +1,4 @@
-import { ArrowUpRight, Play } from 'lucide-react'
+import { ArrowUpRight, ExternalLink, Play } from 'lucide-react'
 import { StatusBadge } from '@/components/ui-bits'
 
 export type CaseSection = { title: string; text?: string; list?: string[] }
@@ -63,15 +63,32 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: (or
         ))}
       </ul>
 
-      <button
-        type="button"
-        aria-haspopup="dialog"
-        aria-label={`Ver caso: ${project.title}`}
-        className="btn-dark self-start justify-self-start"
-      >
-        Ver caso
-        <ArrowUpRight aria-hidden="true" className="size-[1.125em]" />
-      </button>
+      <div className="flex flex-col gap-2.5 self-stretch sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 sm:self-start">
+        <button
+          type="button"
+          aria-haspopup="dialog"
+          aria-label={`Ver caso: ${project.title}`}
+          className="btn-dark max-sm:w-full"
+        >
+          Ver caso
+          <ArrowUpRight aria-hidden="true" className="size-[1.125em]" />
+        </button>
+        {project.demoUrl && (
+          // Acceso directo a la demo: abre en otra pestaña sin abrir el caso
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(event) => event.stopPropagation()}
+            aria-label={`Ver demo en vivo de ${project.title} (se abre en otra pestaña)`}
+            className="btn-mint max-sm:w-full"
+          >
+            <span aria-hidden="true" className="live-dot" />
+            Demo en vivo
+            <ExternalLink aria-hidden="true" className="size-[1em]" />
+          </a>
+        )}
+      </div>
     </article>
   )
 }

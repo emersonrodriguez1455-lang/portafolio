@@ -115,6 +115,18 @@ export function ProjectDialog({ project, openId, origin }: { project: Project | 
             )
           )}
 
+          {project.demoUrl && (
+            // Video y demo son lo principal: la demo queda justo debajo del video
+            <div className="-mt-2 flex flex-wrap items-center gap-x-4 gap-y-2">
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-dark">
+                <span aria-hidden="true" className="live-dot" />
+                Ver demo en vivo
+                <ExternalLink aria-hidden="true" size={16} />
+              </a>
+              <span className="font-mono text-xs text-slate">Pruébala tú mismo · datos ficticios · se abre en otra pestaña</span>
+            </div>
+          )}
+
           <div className="flex flex-col items-start gap-3">
             <h2 id="caso-titulo" className="font-display text-4xl leading-[0.9] tracking-[-0.03em] uppercase md:text-5xl">
               <Typewriter text={project.title} start={200} speed={28} />

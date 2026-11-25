@@ -106,10 +106,12 @@
 @layer components {
   /* Flecha/ícono de los botones: se adelanta al pasar el mouse (solo `translate`, va por GPU) */
   .btn-dark svg,
+  .btn-mint svg,
   .btn-ghost svg {
     transition: translate 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   .btn-dark:hover svg,
+  .btn-mint:hover svg,
   .btn-ghost:hover svg {
     translate: 0.125rem -0.125rem;
   }
@@ -121,12 +123,17 @@
   .btn-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-6 py-3 text-base font-medium text-paper select-none;
   }
+  /* Acceso a la demo en vivo: mismo tamaño que .btn-dark, en menta con borde negro */
+  .btn-mint {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border-[0.094rem] border-ink bg-mint px-5 py-3 text-base font-medium text-ink select-none;
+  }
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-[0.25rem] border-[0.094rem] border-slate px-4 py-3 text-base font-medium text-slate select-none;
   }
   /* Hover: crece 10 % (20 px → 22 px). Presionar: se hunde al 95 %.
      Ojo: Tailwind v4 anima con la propiedad `scale`, por eso se transiciona `scale` y no `transform`. */
   .btn-dark,
+  .btn-mint,
   .btn-ghost {
     transition:
       scale var(--dur-hover) var(--ease-state),
@@ -135,6 +142,7 @@
   }
   @media (hover: hover), (any-hover: hover) {
     .btn-dark:hover,
+    .btn-mint:hover,
     .btn-ghost:hover {
       scale: 1.1;
     }
@@ -146,6 +154,7 @@
     }
   }
   .btn-dark:active,
+  .btn-mint:active,
   .btn-ghost:active {
     scale: 0.95;
     transition-duration: var(--dur-press);
@@ -657,4 +666,27 @@
   background: var(--color-mint);
   opacity: 0;
   animation: tw-blink 1s steps(1) 1.6s infinite;
+}
+
+/* Punto "en vivo" de los botones de demo */
+.live-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: #22c55e;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    animation: live-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+@keyframes live-ping {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
 }

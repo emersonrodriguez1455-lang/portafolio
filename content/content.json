@@ -97,9 +97,9 @@
         "Consumo de API REST",
         "Playwright"
       ],
-      "demoUrl": null,
+      "demoUrl": "https://tickets-tic-demo.vercel.app",
       "siteUrl": null,
-      "repoUrl": null
+      "repoUrl": "https://github.com/emersonrodriguez1455-lang/legumex_tickets_frontend"
     },
     {
       "id": "formatos-tic",
@@ -157,9 +157,9 @@
         "Tailwind CSS",
         "API Laravel"
       ],
-      "demoUrl": null,
+      "demoUrl": "https://formatos-tic-demo.vercel.app",
       "siteUrl": null,
-      "repoUrl": null
+      "repoUrl": "https://github.com/emersonrodriguez1455-lang/formatos-tic-demo"
     },
     {
       "id": "agroalerta-ai",

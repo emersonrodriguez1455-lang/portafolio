@@ -21,7 +21,8 @@ const fontVars = {
 } as React.CSSProperties
 
 const title = SEO_TITLE
-const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+// Código público de Google Search Console (no es secreto); se puede sobrescribir con la variable de entorno
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'AXpbmpidLvJcGK9OF0bNBxyYlLOZGdCn8hdok-L7Hxo'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -7,10 +7,10 @@ import { ProjectDialog } from '@/components/project-dialog'
 import { Typewriter } from '@/components/typewriter'
 import { Reveal } from '@/components/reveal'
 import { HeroCodeCard } from '@/components/hero-code-card'
-import { LayoutTemplate, Sparkles, Sprout } from 'lucide-react'
+import { Server, Sparkles, Sprout } from 'lucide-react'
 
-// Un ícono por chip: Junior · Frontend · Asistido con IA (Backend ya va en el titular)
-const focusIcons = [Sprout, LayoutTemplate, Sparkles]
+// Un ícono por chip: Junior · Backend · Asistido con IA
+const focusIcons = [Sprout, Server, Sparkles]
 
 /**
  * Titular + tres tarjetas en la primera pantalla. Al abrir una, se muestra el caso completo.

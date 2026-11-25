@@ -3,7 +3,7 @@
     "name": "Emerson Sontay",
     "fullName": "Emerson Gerardo Sontay Rodríguez",
     "role": "Desarrollador Junior",
-    "headline": "Desarrollador Junior | Experiencia en frontend (React) · Enfocado en backend (Node.js, Express, SQL)",
+    "headline": "Desarrollador Junior | Enfoque en backend (Node.js, Express, SQL, APIs REST) · También React",
     "location": "Chimaltenango, Guatemala",
     "email": "emersonrodriguez1455@gmail.com",
     "whatsappUrl": "https://wa.me/50254394463",
@@ -33,12 +33,12 @@
     "title": "Desarrollador Junior",
     "focus": [
       "Junior",
-      "Frontend",
+      "Backend",
       "Asistido con IA"
     ],
-    "summary": "Tengo experiencia en frontend con React, desarrollada en una práctica real en LEGUMEX. Mi enfoque es el backend (Node.js, Express, SQL; nivel inicial), que estoy estudiando. Uso la IA como herramienta de apoyo y reviso y pruebo lo que entrego."
+    "summary": "Soy desarrollador junior con enfoque en backend: tengo buena lógica de programación y estoy profundizando en Node.js, Express, SQL y APIs REST. También he trabajado en frontend con React en sistemas reales de LEGUMEX. Uso la IA como herramienta de apoyo y reviso y pruebo lo que entrego."
   },
-  "projectsIntro": "Desarrollador Junior: experiencia en frontend con React y enfoque en backend, con la IA como herramienta de apoyo.",
+  "projectsIntro": "Desarrollador Junior con enfoque en backend y experiencia en React, con la IA como herramienta de apoyo.",
   "projects": [
     {
       "id": "tickets-tic",
@@ -256,7 +256,7 @@
   "about": {
     "title": "Sobre mí",
     "paragraphs": [
-      "Soy desarrollador junior con experiencia en frontend (React) en sistemas reales. Tengo conocimientos de nivel inicial en backend (Node.js, Express, API REST) y en bases de datos (PostgreSQL, MySQL y SQLite), que sigo estudiando. Uso la inteligencia artificial como herramienta de apoyo y reviso y pruebo lo que entrego.",
+      "Soy desarrollador junior con enfoque en backend: estoy profundizando en Node.js, Express, APIs REST y bases de datos (PostgreSQL, MySQL y SQLite). También tengo experiencia en frontend con React en sistemas reales. Uso la inteligencia artificial como herramienta de apoyo y reviso y pruebo lo que entrego.",
       "Me gusta entender un problema de principio a fin: hablar con las personas que lo viven, diseñar la solución, probarla en uso real y mejorarla. Me apoyo en la resolución de problemas, el pensamiento crítico y el trabajo en equipo.",
       "En mi práctica profesional en LEGUMEX, empresa agroindustrial en El Tejar, Chimaltenango (agosto a septiembre de 2026), desarrollé el frontend de dos sistemas internos, en pareja con una compañera de backend y con apoyo de los ingenieros del área TIC. Registré actas de entrega con usuarios de 13 áreas.",
       "Ahora enfoco mi energía en el backend, que estoy estudiando, para poder construir sistemas completos."

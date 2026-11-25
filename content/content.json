@@ -58,7 +58,7 @@
         "show": true,
         "src": "/videos/tickets-tic.mp4",
         "poster": "/videos/tickets-tic-poster.jpg",
-        "description": "Recorrido por las funciones principales del sistema, con datos ficticios."
+        "description": "Recorrido de 1 minuto: crear un ticket, filtrar, dar seguimiento y ver métricas. Datos ficticios."
       },
       "sections": [
         {
@@ -119,7 +119,7 @@
         "show": true,
         "src": "/videos/formatos-tic.mp4",
         "poster": "/videos/formatos-tic-poster.jpg",
-        "description": "Recorrido por el inventario y la creación de un acta, con datos ficticios."
+        "description": "Recorrido de 1 minuto: crear un acta de entrega, firmarla en pantalla, generar el PDF y revisar el historial. Datos ficticios. Música: Light And Shade: Hope (Piano) — AlesiaDavina, CC BY 4.0."
       },
       "sections": [
         {

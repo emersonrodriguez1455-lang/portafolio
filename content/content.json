@@ -98,7 +98,8 @@
         "Playwright"
       ],
       "demoUrl": null,
-      "siteUrl": null
+      "siteUrl": null,
+      "repoUrl": null
     },
     {
       "id": "formatos-tic",
@@ -107,7 +108,7 @@
         "alt": "Pantalla Nueva Acta del sistema de formatos, con entrega y devolución de equipo"
       },
       "title": "Sistema de Formatos TIC",
-      "summary": "Inventario de equipos y personas, con acta de entrega en PDF. Seis formatos de papel pasaron a dos.",
+      "summary": "Sistema completo de gestión de equipos y usuarios: entregas y devoluciones, estado de cada equipo, áreas y marcas, con actas en PDF.",
       "tags": [
         "React",
         "Tailwind CSS",
@@ -127,7 +128,7 @@
         },
         {
           "title": "Solución",
-          "text": "Los seis formatos se unificaron en dos (entrega y devolución). Incluye catálogos de marcas, departamentos, equipos y empleados, estados del equipo, registro de extravíos, actas con firma digital, historial con filtros, búsqueda por serie y marca, exportación a CSV y actas de hasta 10 equipos."
+          "text": "Un sistema completo para gestionar equipos y usuarios: entregas y devoluciones, el estado de cada equipo (nuevo o usado), áreas y marcas. Los seis formatos de papel se unificaron en dos (entrega y devolución). Incluye catálogos de marcas, departamentos, equipos y empleados, estados del equipo, registro de extravíos, actas con firma digital, historial con filtros, búsqueda por serie y marca, exportación a CSV y actas de hasta 10 equipos."
         },
         {
           "title": "Resolución de problemas",
@@ -157,7 +158,59 @@
         "API Laravel"
       ],
       "demoUrl": null,
-      "siteUrl": null
+      "siteUrl": null,
+      "repoUrl": null
+    },
+    {
+      "id": "agroalerta-ai",
+      "image": {
+        "src": "/projects/agroalerta-ai.webp",
+        "alt": "Pantalla Nuevo diagnóstico de AgroAlerta AI: carga de una foto de hoja de café y estado del proceso de análisis"
+      },
+      "title": "AgroAlerta AI (Hackathon Build and Pitch)",
+      "summary": "Herramienta web que lleva un modelo de IA publicado a los productores de café: foto de la hoja, clasificación preliminar e inspecciones por finca.",
+      "tags": [
+        "Hackathon",
+        "IA aplicada",
+        "Ideación"
+      ],
+      "status": "Participación 2026",
+      "video": {
+        "show": false
+      },
+      "sections": [
+        {
+          "title": "Resumen",
+          "text": "Participación en el hackathon Build and Pitch 2026, en la Universidad del Valle de Guatemala (zona 15): 12 horas para construir un MVP en equipo y presentarlo en un pitch de 3 minutos."
+        },
+        {
+          "title": "Reto",
+          "text": "El track era \"Deep Tech: del paper al producto\": tomar un avance científico y convertirlo en una herramienta útil."
+        },
+        {
+          "title": "Idea del equipo",
+          "text": "Partimos de un modelo de IA publicado y especializado en enfermedades de la hoja de café (ConvNeXt-Small) y lo convertimos en una herramienta para pequeños y medianos productores. El flujo es simple: subir la foto de una hoja, recibir una clasificación preliminar, guardar la inspección y organizarla por finca y parcela."
+        },
+        {
+          "title": "Mi rol",
+          "text": "Propuse usar ese modelo especializado y llevarlo del paper a una herramienta para la industria cafetalera de Guatemala: un cafetal sano mejora la economía de los agricultores, de las fincas y del país, y hay estudios sobre el daño económico que han causado estas enfermedades. Pulí la idea con el equipo, pensando en que la app fuera intuitiva para los agricultores y en ponerla en línea."
+        },
+        {
+          "title": "Estado",
+          "text": "MVP experimental, con buena recepción de los mentores. Funciona en un solo entorno de usuario y todavía no está preparado para producción. El código está disponible en GitHub."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "FastAPI",
+        "PyTorch",
+        "SQLite"
+      ],
+      "demoUrl": null,
+      "siteUrl": null,
+      "repoUrl": "https://github.com/emersonrodriguez1455-lang/buildAndPitch"
     },
     {
       "id": "rastro",
@@ -196,7 +249,8 @@
       ],
       "technologies": [],
       "demoUrl": null,
-      "siteUrl": "https://hakaton-cf0f7.web.app/"
+      "siteUrl": null,
+      "repoUrl": null
     }
   ],
   "about": {
@@ -347,7 +401,11 @@
     "MySQL": "devicon:mysql/mysql-original",
     "SQLite": "devicon:sqlite/sqlite-original",
     "Supabase": "devicon:supabase/supabase-original",
-    "phpMyAdmin (XAMPP)": "lucide:database"
+    "phpMyAdmin (XAMPP)": "lucide:database",
+    "TypeScript": "devicon:typescript/typescript-original",
+    "Python": "devicon:python/python-original",
+    "FastAPI": "devicon:fastapi/fastapi-original",
+    "PyTorch": "devicon:pytorch/pytorch-original"
   },
   "contact": {
     "title": "Contacto",

@@ -162,6 +162,12 @@ export function ProjectDialog({ project, openId, origin }: { project: Project | 
                 <ExternalLink aria-hidden="true" size={16} />
               </a>
             ) : null}
+            {project.repoUrl && (
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className={project.siteUrl || project.demoUrl ? 'btn-ghost' : 'btn-dark'}>
+                Ver código en GitHub
+                <ExternalLink aria-hidden="true" size={16} />
+              </a>
+            )}
             <button type="button" onClick={close} className="btn-ghost">
               Cerrar
             </button>

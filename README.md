@@ -1,6 +1,18 @@
 # Portafolio de Emerson Sontay
 
-Sitio de una sola página. Primero se ven los proyectos y después Sobre mí, IA, Habilidades y Contacto.
+Portafolio personal de Emerson Sontay, desarrollador junior con enfoque en backend y soporte de TI (Chimaltenango, Guatemala).
+
+**Sitio en vivo:** https://portafolio-c8jc.vercel.app
+
+Es un sitio de una sola página. Primero se ven los proyectos (Tickets TIC, Formatos TIC, AgroAlerta AI y Rastro) y después Sobre mí, IA, Habilidades y Contacto. Cada tarjeta se abre en un caso completo con el problema, la solución, mi rol y las tecnologías.
+
+## Stack
+
+- **Next.js 16** (App Router; la página se genera como contenido estático) y **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **lucide-react** e íconos de **devicon** por CDN
+- **Vercel** para el despliegue y **@vercel/analytics** para las visitas
 
 ## Cómo editar el contenido
 
@@ -11,6 +23,8 @@ Todo el texto vive en **`content/content.json`**. No hace falta tocar el código
 - Agregar GitHub: pon la URL en `site.githubUrl`.
 - Agregar un video: copia el `.mp4` y su portada a `public/videos/` y llena `video.src` y `video.poster` del proyecto.
 - Activar un demo: pon la URL en `demoUrl`.
+- Enlazar el código de un proyecto: pon la URL del repositorio en `repoUrl` (muestra el botón "Ver código en GitHub").
+- Agregar un proyecto: copia un objeto de `projects`, cambia su `id` y pon su portada en `public/projects/` (1280 × 800 px, formato `.webp`).
 - Un ícono nuevo: agrégalo en `icons` (`"devicon:carpeta/archivo"` o `"lucide:nombre"`).
 
 Si un dato falta (`null`), la página muestra un marcador amarillo **[PENDIENTE]**.
@@ -23,7 +37,7 @@ pnpm dev      # http://localhost:3000
 pnpm build    # versión de producción
 ```
 
-Para publicar: conecta el repositorio en Vercel (gratis). No necesita variables de entorno.
+El repositorio está conectado a Vercel: cada cambio en `main` se publica solo en https://portafolio-c8jc.vercel.app. No necesita variables de entorno.
 
 ## Estructura
 
@@ -44,8 +58,8 @@ components/ui-bits.tsx      Piezas pequeñas: marcador PENDIENTE, insignia, íco
 ## Decisiones técnicas (en lenguaje simple)
 
 - **`<dialog>` nativo del navegador para la tarjeta expandida.** Atrapa el foco, se cierra con Esc y devuelve el foco al botón que la abrió sin librerías. Solo agregué cerrar al hacer clic fuera.
-- **Una sola tarjeta de proyecto** que recibe datos del JSON, en lugar de tres copias.
-- **El caso completo se arma con una lista de secciones** (título + texto o viñetas). Así Rastro, que tiene otras secciones, usa el mismo componente.
+- **Una sola tarjeta de proyecto** que recibe datos del JSON, en lugar de una copia por proyecto.
+- **El caso completo se arma con una lista de secciones** (título + texto o viñetas). Así los hackathones (Rastro y AgroAlerta AI), que tienen otras secciones, usan el mismo componente.
 - **Íconos de devicon por CDN** con `<img>` y carga diferida: logos oficiales sin instalar paquetes. Para las habilidades que no son tecnologías uso íconos genéricos de `lucide-react`, que ya venía en el proyecto.
 - **Fuentes sustitutas libres:** Anton (títulos), Inter (texto) y JetBrains Mono (etiquetas), en lugar de Suisse, que es de pago. Así lo indica el archivo de diseño.
 - **Sin shadcn/ui ni estado global:** la página no los necesita. Solo hay un `useState` (qué proyecto está abierto).

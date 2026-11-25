@@ -15,6 +15,7 @@ export type Project = {
   technologies: string[]
   demoUrl: string | null
   siteUrl: string | null
+  repoUrl?: string | null
 }
 
 /**
